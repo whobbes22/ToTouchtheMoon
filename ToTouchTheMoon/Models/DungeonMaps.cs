@@ -9,7 +9,9 @@ namespace DungeonMaps.Models
     public int MapWidth {get;set;}
     public int AmountOfRooms {get;set;}
 
-    public char[,] GeneratedMap {get;set;}
+    public char[,] PCGMap {get;set;}
+
+    public int[] Test {get;set;}
 
     public BasicMap(int mapHeight, int mapWidth, int amountOfRooms)
     {
@@ -21,17 +23,17 @@ namespace DungeonMaps.Models
     // should look like a group of arrays inside another array
     public void GenerateMap()
     {
-
+      
       //make a list add each thing into it, put them into the array
       
-      //char[][] map = new char[MapHeight][];
-      GeneratedMap = new char [MapHeight,MapWidth];
+      // [row , column]
+      PCGMap = new char [MapHeight,MapWidth];
 
-      for(int i = 0; i < MapWidth; i++)
+      for(int i = 0; i < MapWidth -1; i++)
       {
-        for(int j = 0; j < MapHeight; j++)
+        for(int j = 0; j < MapHeight -1; j++)
         {
-          GeneratedMap[i,j] = '#';
+          PCGMap[i,j] = '#';
         }
       }
     }
