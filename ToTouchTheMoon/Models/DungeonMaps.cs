@@ -75,31 +75,25 @@ namespace DungeonMaps.Models
 
     public bool TestIntersection(double x1, double x2, double y1, double y2)
     {
+      Console.WriteLine($"Room coords to be tested: {x1}, {x2}, {y1}, {y2}");
       foreach(double[] element in CoordinatesList)
       {
         Console.WriteLine($"{element[0]}, {element[1]}, {element[2]}, {element[3]}");
-        // if(x1 <= element[0] && x2 >= element[1] && y1 <= element[2] && y2 >= element[3])
+        // sort of works
+        // if (!(x1 > element[1] || x2 > element[0] || y1 > element[3] || y2 > element[2]))
         // {
-        //   Console.WriteLine("There is an intersection here");
-        //   return true;
+        //     Console.WriteLine($"Intersection {x1} > {element[1]} || {x2} > {element[0]} || {y1} > {element[3]} || {y2} > {element[2]}");
+        //     return true;
         // }
 
-
-        if (x1 > element[1] || x2 > element[0])
+        if(!(x2 <= element[0] ||  x1 >= element[1] || y2 <= element[2] || y1 >= element[3] ))
         {
-            Console.WriteLine("completly on the left");
-            return false;
-        }
- 
-        // If one rectangle is above other
-        if (y1 > element[3] || y2 > element[2])
-        {
-            Console.WriteLine("rooms completly above each other");
-            return false;
+          Console.WriteLine($"Intersection {x2} <= {element[0]} || {x1} >= {element[1]} || {y2} >= {element[2]} || {y1} >= {element[3]}");
+          return true;
         }
       }
-      Console.WriteLine("Rooms overlap");
-      return true;
+      Console.WriteLine("No overlap");
+      return false;
     }
 
     public void DisplayMap()
