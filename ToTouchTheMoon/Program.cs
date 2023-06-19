@@ -49,6 +49,12 @@ namespace ToTouchTheMoon
       BasicMap testMap = new BasicMap(15,80,3);
       testMap.GenerateMap();
       testMap.MakeRandomRoom();
+      testMap.MakeRandomRoom();
+      testMap.MakeRandomRoom();
+      testMap.MakeRandomRoom();
+      testMap.MakeRandomRoom();
+      //Console.WriteLine( testMap.TestIntersection(1,2,3,4));
+      //Console.WriteLine(testMap.TestIntersection(1,10,3,10));
       testMap.DisplayMap();
 
     //   map1.GenerateMap();

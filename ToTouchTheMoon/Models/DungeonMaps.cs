@@ -10,8 +10,7 @@ namespace DungeonMaps.Models
     public int AmountOfRooms {get;set;}
 
     public char[,] PCGMap {get;set;}
-
-    public int[] Test {get;set;}
+    List<double[]> CoordinatesList = new List<double[]>();
 
     public BasicMap(int mapHeight, int mapWidth, int amountOfRooms)
     {
@@ -42,15 +41,26 @@ namespace DungeonMaps.Models
       // Code to make a random room
       var rand = new Random();
       // x1 y1 = top left corner of the room, x2 includes the length of the room to be top right corner, y2 is similar
+
       int x1 = rand.Next(1,70);
       int x2 = rand.Next(2,6) + x1;
       int y1 = rand.Next(1,8);
       int y2 = rand.Next(2,6) + y1;
+
+
+      // x1= 1;
+      // x2 = 50;
+      // y1= 1;
+      // y2 = 10;
+
       double xCenter = Math.Round((x1 + x2) / 2.0);
       double yCenter = Math.Round((y1 + y2) / 2.0);
 
-      //double[] coordArray = {x1,x2,y1,y2,xCenter,yCenter};
-      //coordinatesList.Add(coordArray);
+      double[] coordArray = {x1,x2,y1,y2,xCenter,yCenter};
+
+      TestIntersection(x1,x2,y1,y2);
+
+      CoordinatesList.Add(coordArray);
       for(int i = y1; i< y2;i++)
       {
         for(int j = x1; j < x2;j++)
@@ -59,6 +69,37 @@ namespace DungeonMaps.Models
         }
       }
 
+
+   
+    }
+
+    public bool TestIntersection(double x1, double x2, double y1, double y2)
+    {
+      foreach(double[] element in CoordinatesList)
+      {
+        Console.WriteLine($"{element[0]}, {element[1]}, {element[2]}, {element[3]}");
+        // if(x1 <= element[0] && x2 >= element[1] && y1 <= element[2] && y2 >= element[3])
+        // {
+        //   Console.WriteLine("There is an intersection here");
+        //   return true;
+        // }
+
+
+        if (x1 > element[1] || x2 > element[0])
+        {
+            Console.WriteLine("completly on the left");
+            return false;
+        }
+ 
+        // If one rectangle is above other
+        if (y1 > element[3] || y2 > element[2])
+        {
+            Console.WriteLine("rooms completly above each other");
+            return false;
+        }
+      }
+      Console.WriteLine("Rooms overlap");
+      return true;
     }
 
     public void DisplayMap()
