@@ -1,4 +1,5 @@
 ### Research & Planning Log
 #### Friday 7/7
 Research into the library PDcurses
-Researach into curses - sharp
+Research into curses - sharp
+Research iunto libtcod-net
