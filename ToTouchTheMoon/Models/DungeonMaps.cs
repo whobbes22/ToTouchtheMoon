@@ -42,24 +42,25 @@ namespace DungeonMaps.Models
       var rand = new Random();
       // x1 y1 = top left corner of the room, x2 includes the length of the room to be top right corner, y2 is similar
 
+
+
       int x1 = rand.Next(1,70);
       int x2 = rand.Next(2,6) + x1;
       int y1 = rand.Next(1,8);
       int y2 = rand.Next(2,6) + y1;
 
 
-      // x1= 1;
-      // x2 = 50;
-      // y1= 1;
-      // y2 = 10;
+
 
       double xCenter = Math.Round((x1 + x2) / 2.0);
       double yCenter = Math.Round((y1 + y2) / 2.0);
 
+       if(TestIntersection(x1,x2,y1,y2))
+      {
+        
+      }
+
       double[] coordArray = {x1,x2,y1,y2,xCenter,yCenter};
-
-      TestIntersection(x1,x2,y1,y2);
-
       CoordinatesList.Add(coordArray);
       for(int i = y1; i< y2;i++)
       {
@@ -75,10 +76,10 @@ namespace DungeonMaps.Models
 
     public bool TestIntersection(double x1, double x2, double y1, double y2)
     {
-      Console.WriteLine($"Room coords to be tested: {x1}, {x2}, {y1}, {y2}");
+      //Console.WriteLine($"Room coords to be tested: {x1}, {x2}, {y1}, {y2}");
       foreach(double[] element in CoordinatesList)
       {
-        Console.WriteLine($"{element[0]}, {element[1]}, {element[2]}, {element[3]}");
+        //Console.WriteLine($"{element[0]}, {element[1]}, {element[2]}, {element[3]}");
         // sort of works
         // if (!(x1 > element[1] || x2 > element[0] || y1 > element[3] || y2 > element[2]))
         // {
@@ -88,11 +89,11 @@ namespace DungeonMaps.Models
 
         if(!(x2 <= element[0] ||  x1 >= element[1] || y2 <= element[2] || y1 >= element[3] ))
         {
-          Console.WriteLine($"Intersection {x2} <= {element[0]} || {x1} >= {element[1]} || {y2} >= {element[2]} || {y1} >= {element[3]}");
+          //Console.WriteLine($"Intersection {x2} <= {element[0]} || {x1} >= {element[1]} || {y2} >= {element[2]} || {y1} >= {element[3]}");
           return true;
         }
       }
-      Console.WriteLine("No overlap");
+      //Console.WriteLine("No overlap");
       return false;
     }
 
