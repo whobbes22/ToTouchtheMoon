@@ -2,7 +2,7 @@
 
 Game.Configuration gameStartup = new Game.Configuration()
     .SetScreenSize(GameSettings.GAME_WIDTH, GameSettings.GAME_HEIGHT)
-    .SetStartingScreen<ToTouchTheMoon.Scenes.RootScene>()
+    .SetStartingScreen<SadConsoleGame.Scenes.RootScene>()
     ;
 
 Game.Create(gameStartup);

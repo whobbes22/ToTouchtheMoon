@@ -1,4 +1,4 @@
-﻿namespace ToTouchTheMoon.Scenes;
+﻿namespace SadConsoleGame.Scenes;
 
 class RootScene : ScreenObject
 {
