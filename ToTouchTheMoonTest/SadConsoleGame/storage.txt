@@ -1,0 +1,85 @@
+using SadConsole;
+using SadRogue.Primitives;
+ 
+namespace SadConsoleSetup
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Settings.WindowTitle = "SadConsole";
+ 
+            Game.Configuration gameStartup = new Game.Configuration()
+                .SetScreenSize(120, 40)
+                .OnStart(OnStart)
+                .IsStartingScreenFocused(false)
+                .ConfigureFonts((f) => f.UseBuiltinFontExtended());
+ 
+            Game.Create(gameStartup);
+            Game.Instance.Run();
+            Game.Instance.Dispose();
+        }
+ 
+        private static void OnStart()
+        {
+            ColoredGlyph boxBorder = new ColoredGlyph(Color.White, Color.Black, 178);
+            ColoredGlyph boxFill = new ColoredGlyph(Color.White, Color.Black);
+ 
+            //Game.Instance.StartingConsole.FillWithRandomGarbage(255);
+            
+
+            // Game.Instance.StartingConsole.Surface.Print(50, 5, "Hello World");
+            // Game.Instance.StartingConsole.Print(4, 4, "Welcome to SadConsole!");
+            Game.Instance.StartingConsole.Print(0,0,@"1\
+            2
+            3");
+  
+
+            var startPoint = new Point(0, 0);
+            var endPoint = new Point(Game.Instance.StartingConsole.Width, 0);
+            int? glyph = 'u'; // Lets add glyph O
+            var backgroundColor = Color.Green;
+            // Game.Instance.StartingConsole.Surface.DrawLine(startPoint, endPoint, glyph, background: backgroundColor);
+
+
+          var console = Game.Instance.StartingConsole;
+          // Define a blinking effect
+          // var blinkingEffect = new Blinker
+          // {
+          //     // Blink forever
+          //     Duration = System.TimeSpan.MaxValue,
+          //     BlinkOutForegroundColor = Color.Black,
+          //     // Every half a second
+          //     BlinkSpeed = TimeSpan.FromMilliseconds(500),
+          //     RunEffectOnApply = true
+          // };
+          
+          // // Set initial color
+          // console.SetGlyph(1, 1, 'A', Color.White, Color.Black);
+          // console.SetEffect(1, 1, blinkingEffect);
+
+            
+            Game.Instance.StartingConsole.Surface.Print(5, 5, "To Touch the Moon");
+            Game.Instance.StartingConsole.Surface.Print(5, 10, "New Game");
+            Game.Instance.StartingConsole.Surface.Print(5, 15, "Load Game");
+            Game.Instance.StartingConsole.Surface.Print(5, 20, "Credits");
+ 
+
+
+      
+        }
+    }
+}
+
+/*
+function removeAt(str){
+  let arr = str.split("")
+  for(let i =0; i< arr.length; i++){
+    if(arr[i] === "@"){
+      arr[i] = " ";
+    }
+  }
+  return arr.join("");
+}
+
+*/
