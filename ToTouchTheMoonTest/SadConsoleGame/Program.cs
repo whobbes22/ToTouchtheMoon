@@ -1,6 +1,7 @@
-﻿using SadConsole;
+﻿using System;
+using SadConsole;
 using SadRogue.Primitives;
- 
+
 namespace SadConsoleSetup
 {
     internal class Program
@@ -22,7 +23,9 @@ namespace SadConsoleSetup
  
         private static void OnStart()
         {
-          
+          Game.Instance.Screen = new RootScreen();
+          Game.Instance.Screen.IsFocused = true;
+          Game.Instance.DestroyDefaultStartingConsole();
         }
     }
 }
