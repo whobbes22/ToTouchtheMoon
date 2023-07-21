@@ -16,12 +16,16 @@ namespace SadConsoleGame
 
       public Map(int mapWidth, int mapHeight)
       {
+        _mapObjects = new List<GameObject>();
         _mapSurface = new ScreenSurface(mapWidth, mapHeight);
         _mapSurface.UseMouse = false;
 
         FillBackground();
       
-        UserControlledObject = new GameObject(new ColoredGlyph(Color.White, Color.Black, 2), _mapSurface.Surface.Area.Center, _mapSurface);
+        UserControlledObject = new GameObject(new ColoredGlyph(Color.White, Color.Black, 2), 
+                                            _mapSurface.Surface.Area.Center, _mapSurface);
+
+        CreateTreasure();
       }
 
       private void FillBackground()
@@ -37,5 +41,24 @@ namespace SadConsoleGame
                                 new Gradient(colors, colorStops),
                                 (x, y, color) => _mapSurface.Surface[x, y].Background = color);
       }
+
+      public void CreateTreasure()
+      {
+        for(int i = 0; i < 1000; i++)
+        {
+          Point randomPosition = new Point(Game.Instance.Random.Next(0,_mapSurface.Width), Game.Instance.Random.Next(0,_mapSurface.Surface.Height));
+
+          bool fouundObject = _mapObjects.Any(obj => obj.Position == randomPosition );
+          if(fouundObject) continue;
+
+          GameObject treasure = new GameObject(new ColoredGlyph(Color.Yellow, Color.Black, 'v'),
+                                                    randomPosition, _mapSurface);
+          _mapObjects.Add(treasure);
+          break;
+        }
+      }
+
+
+
     }
 }
