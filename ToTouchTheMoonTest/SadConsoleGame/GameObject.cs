@@ -26,13 +26,15 @@ namespace SadConsoleGame
             screenSurface.IsDirty = true;
         }
 
-        public void Move(Point newPosition, IScreenSurface screenSurface)
+        public bool Move(Point newPosition, IScreenSurface screenSurface)
         { 
+          if(!screenSurface.Surface.IsValidCell(newPosition.X, newPosition.Y)) return false;
           _mapAppearance.CopyAppearanceTo(screenSurface.Surface[Position]);
           screenSurface.Surface[newPosition].CopyAppearanceTo(_mapAppearance);
 
           Position = newPosition;
           DrawGameObject(screenSurface);
+          return true;
         }
     }
 }
