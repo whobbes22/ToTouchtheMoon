@@ -2,7 +2,7 @@
 using SadConsole;
 using SadRogue.Primitives;
 
-namespace TTtMGame
+namespace SadConsoleGame
 {
     internal class Program
     {

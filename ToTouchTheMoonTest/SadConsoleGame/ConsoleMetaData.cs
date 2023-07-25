@@ -1,6 +1,6 @@
 using SadConsole;
 
-namespace TTtMGame
+namespace SadConsoleGame
 {
   internal class CustomConsole
   {

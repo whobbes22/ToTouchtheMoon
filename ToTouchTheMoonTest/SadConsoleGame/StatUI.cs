@@ -1,9 +1,11 @@
+using System;
 using SadConsole;
 using SadRogue.Primitives;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TTtMGame
+
+namespace SadConsoleGame
 {
     public class StatUI
     {
@@ -15,12 +17,12 @@ namespace TTtMGame
       public StatUI(int mapWidth, int mapHeight)
       {
       
-        _statSurface = new ScreenSurface(mapWidth, mapHeight);
+        _statSurface = new Console(mapWidth, mapHeight);
         _statSurface.UseMouse = false;
-
-        _statSurface.SetBackground(Color.Black);
-        _statSurface.Print(4,4,"hi",Color.Black);
-
+        _statSurface.Position = new Point(15,10);
+        // _statSurface.DefaultBackground = Color.AnsiBlack;
+        _statSurface.Print(4,4,"HP",Color.Black);
+        _statSurface.Print(4,5,"PP",Color.Black);
       }
 
     }

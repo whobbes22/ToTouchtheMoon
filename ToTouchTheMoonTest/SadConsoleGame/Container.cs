@@ -7,7 +7,7 @@ using SadConsole.Input;
 // using Console = SadConsole.Console;
 using SadRogue.Primitives;
 
-namespace TTtMGame
+namespace SadConsoleGame
 {
   class Container : ScreenObject
   {

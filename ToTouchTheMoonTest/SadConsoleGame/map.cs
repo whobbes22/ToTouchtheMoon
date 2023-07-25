@@ -3,7 +3,7 @@ using SadRogue.Primitives;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TTtMGame
+namespace SadConsoleGame
 {
     public class Map
     {
@@ -22,7 +22,7 @@ namespace TTtMGame
         
         _mapSurface.UseMouse = false;
 
-        _mapSurface.Print(4,4,"hi",Color.Black);
+        // _mapSurface.Print(4,4,"hi",Color.Black);
         FillBackground();
       
         UserControlledObject = new GameObject(new ColoredGlyph(Color.White, Color.Black, 64), 

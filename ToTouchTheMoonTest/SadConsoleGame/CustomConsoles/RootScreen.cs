@@ -1,22 +1,24 @@
 ﻿using SadConsole;
 using SadConsole.Input;
-using TTtMGame;
+using SadConsoleGame;
 using SadRogue.Primitives;
 using System.Collections.Generic;
 
-namespace TTtMGame
+namespace SadConsoleGame
 {
   public class RootScreen: ScreenObject
   {
-      private Map _map;
-      private Stat _stat;
+    private Map _map;
+    private StatUI _statUI;
 
-      public RootScreen()
-      {
-        _map = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 5);
-        
-        Children.Add(_map.SurfaceObject);
-      }
+    public RootScreen()
+    {
+      _map = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 5);
+      _statUI = new StatUI(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY);
+      // _statUI.Position =
+      Children.Add(_map.SurfaceObject);
+      Children.Add(_statUI.SurfaceObject);
+    }
 
 
     public override bool ProcessKeyboard(Keyboard keyboard)
