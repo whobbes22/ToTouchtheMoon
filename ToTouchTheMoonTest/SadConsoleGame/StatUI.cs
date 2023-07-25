@@ -19,10 +19,24 @@ namespace SadConsoleGame
       
         _statSurface = new Console(mapWidth, mapHeight);
         _statSurface.UseMouse = false;
-        _statSurface.Position = new Point(15,10);
+        _statSurface.Position = new Point(0,Game.Instance.ScreenCellsY - 3);
+        _statSurface.Surface.DefaultBackground = Color.Black;
         // _statSurface.DefaultBackground = Color.AnsiBlack;
-        _statSurface.Print(4,4,"HP",Color.Black);
-        _statSurface.Print(4,5,"PP",Color.Black);
+        _statSurface.Print(0,0,"Name: ",Color.Wheat);
+       
+        _statSurface.Print(10,0,"St: ",Color.Wheat);
+        _statSurface.Print(20,0,"Dx: ",Color.Wheat);
+        _statSurface.Print(30,0,"To: ",Color.Wheat);
+        _statSurface.Print(40,0,"In: ",Color.Wheat);
+        _statSurface.Print(50,0,"Wi: ",Color.Wheat);
+        _statSurface.Print(60,0,"Ch: ",Color.Wheat);
+        _statSurface.Print(70,0,"Sp: ",Color.Wheat);
+
+        _statSurface.Print(0,1,"DV: ",Color.Wheat);
+        _statSurface.Print(10,1,"HP: ",Color.Wheat);
+        _statSurface.Print(20,1,"MP: ",Color.Wheat);
+        _statSurface.Print(30,1,"EXP: ",Color.Wheat);
+        _statSurface.Print(100,1,"Location: ",Color.Wheat);
       }
 
     }
