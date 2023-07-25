@@ -1,7 +1,7 @@
 using SadConsole;
 using SadRogue.Primitives;
 
-namespace SadConsoleGame
+namespace TTtMGame
 {
     internal class Monster: GameObject
     {

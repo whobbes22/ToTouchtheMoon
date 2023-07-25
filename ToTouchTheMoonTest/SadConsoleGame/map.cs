@@ -3,12 +3,13 @@ using SadRogue.Primitives;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SadConsoleGame
+namespace TTtMGame
 {
     public class Map
     {
       private List<GameObject> _mapObjects;
       private ScreenSurface _mapSurface;
+    
 
       public IReadOnlyList<GameObject> GameObjects => _mapObjects.AsReadOnly();
       public ScreenSurface SurfaceObject => _mapSurface;
@@ -18,11 +19,13 @@ namespace SadConsoleGame
       {
         _mapObjects = new List<GameObject>();
         _mapSurface = new ScreenSurface(mapWidth, mapHeight);
+        
         _mapSurface.UseMouse = false;
 
+        _mapSurface.Print(4,4,"hi",Color.Black);
         FillBackground();
       
-        UserControlledObject = new GameObject(new ColoredGlyph(Color.White, Color.Black, 2), 
+        UserControlledObject = new GameObject(new ColoredGlyph(Color.White, Color.Black, 64), 
                                             _mapSurface.Surface.Area.Center, _mapSurface);
 
         for(int i = 0; i<4;i++)
@@ -53,8 +56,8 @@ namespace SadConsoleGame
         {
           Point randomPosition = new Point(Game.Instance.Random.Next(0,_mapSurface.Width), Game.Instance.Random.Next(0,_mapSurface.Surface.Height));
 
-          bool fouundObject = _mapObjects.Any(obj => obj.Position == randomPosition );
-          if(fouundObject) continue;
+          bool foundObject = _mapObjects.Any(obj => obj.Position == randomPosition );
+          if(foundObject) continue;
 
           GameObject treasure = new GameObject(new ColoredGlyph(Color.Yellow, Color.Black, 'v'),
                                                     randomPosition, _mapSurface);

@@ -1,14 +1,15 @@
 ﻿using SadConsole;
 using SadConsole.Input;
-using SadConsoleGame;
+using TTtMGame;
 using SadRogue.Primitives;
 using System.Collections.Generic;
 
-namespace SadConsoleGame
+namespace TTtMGame
 {
   public class RootScreen: ScreenObject
   {
       private Map _map;
+      private Stat _stat;
 
       public RootScreen()
       {
@@ -26,6 +27,7 @@ namespace SadConsoleGame
       if(keyboard.IsKeyPressed(Keys.Up))
       {
         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Up, _map);
+        
         handled = true;
       } else if(keyboard.IsKeyPressed(Keys.Down))
       {

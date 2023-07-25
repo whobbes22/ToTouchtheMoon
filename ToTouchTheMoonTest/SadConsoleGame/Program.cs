@@ -2,16 +2,16 @@
 using SadConsole;
 using SadRogue.Primitives;
 
-namespace SadConsoleGame
+namespace TTtMGame
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Settings.WindowTitle = "SadConsole";
+            Settings.WindowTitle = "To Touch the Moon";
  
             Game.Configuration gameStartup = new Game.Configuration()
-                .SetScreenSize(120, 40)
+                .SetScreenSize(120, 50)
                 .OnStart(OnStart)
                 .IsStartingScreenFocused(false)
                 .ConfigureFonts((f) => f.UseBuiltinFontExtended());
@@ -27,6 +27,8 @@ namespace SadConsoleGame
           Game.Instance.Screen.IsFocused = true;
           Game.Instance.DestroyDefaultStartingConsole();
         }
+
+        
     }
 }
 

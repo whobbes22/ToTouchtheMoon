@@ -1,7 +1,7 @@
 using System;
 using SadConsole.Input;
 
-namespace SadConsoleGame
+namespace TTtMGame
 {
     public class TitleScreen : Console
     {
