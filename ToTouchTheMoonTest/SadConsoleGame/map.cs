@@ -25,8 +25,12 @@ namespace SadConsoleGame
         UserControlledObject = new GameObject(new ColoredGlyph(Color.White, Color.Black, 2), 
                                             _mapSurface.Surface.Area.Center, _mapSurface);
 
-        CreateTreasure();
-        CreateMonster();
+        for(int i = 0; i<4;i++)
+        {
+          CreateTreasure();
+          CreateMonster();
+        }
+
       }
 
       private void FillBackground()
@@ -75,5 +79,27 @@ namespace SadConsoleGame
         }
       }
 
+      public bool TryGetMapObject(Point position, out GameObject gameObject)
+      {
+        foreach (var otherGameObject in _mapObjects)
+        {
+          if(otherGameObject.Position == position)
+          {
+            gameObject = otherGameObject;
+            return true;
+          }
+        }
+        gameObject = null;
+        return false;
+      }
+
+      public void RemoveMapObject(GameObject mapObject)
+      {
+        if(_mapObjects.Contains(mapObject))
+        {
+          _mapObjects.Remove(mapObject);
+          mapObject.RestoreMap(this);
+        }
+      }
     }
 }

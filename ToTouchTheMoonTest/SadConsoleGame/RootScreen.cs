@@ -25,25 +25,27 @@ namespace SadConsoleGame
       // Movement up or down
       if(keyboard.IsKeyPressed(Keys.Up))
       {
-        _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Up, _map.SurfaceObject);
+        _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Up, _map);
         handled = true;
       } else if(keyboard.IsKeyPressed(Keys.Down))
       {
-        _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Down, _map.SurfaceObject);
+        _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Down, _map);
         handled = true;
       }
       // Movement left or right
       if (keyboard.IsKeyPressed(Keys.Left))
       {
-          _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Left, _map.SurfaceObject);
+          _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Left, _map);
           handled = true;
       }
       else if (keyboard.IsKeyPressed(Keys.Right))
       {
-          _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Right, _map.SurfaceObject);
+          _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Right, _map);
           handled = true;
       }
       return handled;
     }
+
+
   }
 }
