@@ -4,44 +4,46 @@ using SadConsoleGame;
 using SadRogue.Primitives;
 using System.Collections.Generic;
 
-public class RootScreen: ScreenObject
+namespace SadConsoleGame
 {
-    private ScreenSurface _map;
-    private GameObject _controlledObject;
-
-    public RootScreen()
-    {
-      _map = new ScreenSurface(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 5);
-      
-      Children.Add(_map);
-    }
-
-
-  public override bool ProcessKeyboard(Keyboard keyboard)
+  public class RootScreen: ScreenObject
   {
-    bool handled = false;
+      private Map _map;
 
-    // Movement up or down
-    if(keyboard.IsKeyPressed(Keys.Up))
+      public RootScreen()
+      {
+        _map = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 5);
+        
+        Children.Add(_map.SurfaceObject);
+      }
+
+
+    public override bool ProcessKeyboard(Keyboard keyboard)
     {
-      _controlledObject.Move(_controlledObject.Position + Direction.Up, _map);
-      handled = true;
-    } else if(keyboard.IsKeyPressed(Keys.Down))
-    {
-      _controlledObject.Move(_controlledObject.Position + Direction.Down, _map);
-      handled = true;
-    }
-    // Movement left or right
-    if (keyboard.IsKeyPressed(Keys.Left))
-    {
-        _controlledObject.Move(_controlledObject.Position + Direction.Left, _map);
+      bool handled = false;
+
+      // Movement up or down
+      if(keyboard.IsKeyPressed(Keys.Up))
+      {
+        _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Up, _map.SurfaceObject);
         handled = true;
-    }
-    else if (keyboard.IsKeyPressed(Keys.Right))
-    {
-        _controlledObject.Move(_controlledObject.Position + Direction.Right, _map);
+      } else if(keyboard.IsKeyPressed(Keys.Down))
+      {
+        _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Down, _map.SurfaceObject);
         handled = true;
+      }
+      // Movement left or right
+      if (keyboard.IsKeyPressed(Keys.Left))
+      {
+          _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Left, _map.SurfaceObject);
+          handled = true;
+      }
+      else if (keyboard.IsKeyPressed(Keys.Right))
+      {
+          _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Right, _map.SurfaceObject);
+          handled = true;
+      }
+      return handled;
     }
-    return handled;
   }
 }

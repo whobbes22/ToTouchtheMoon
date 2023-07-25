@@ -26,6 +26,7 @@ namespace SadConsoleGame
                                             _mapSurface.Surface.Area.Center, _mapSurface);
 
         CreateTreasure();
+        CreateMonster();
       }
 
       private void FillBackground()
@@ -58,7 +59,21 @@ namespace SadConsoleGame
         }
       }
 
+      public void CreateMonster()
+      {
+        for(int i = 0; i <1000; i++)
+        {
+          Point randomPosition = new Point(Game.Instance.Random.Next(0,_mapSurface.Surface.Width),
+                                                Game.Instance.Random.Next(0, _mapSurface.Surface.Height));
+          bool foundObject = _mapObjects.Any(obj => obj.Position == randomPosition);
+          if(foundObject) continue;
 
+          GameObject monster = new GameObject(new ColoredGlyph(Color.Red, Color.Black, 'M'), randomPosition,
+                                                                                            _mapSurface);
+          _mapObjects.Add(monster);
+          break;
+        }
+      }
 
     }
 }
