@@ -13,12 +13,12 @@ namespace SadConsoleGame
 
       public override bool Touched(GameObject source, Map map)
       {
-        if(source == map.UserControlledObject)
-        {
-          map.RemoveMapObject(this);
-          return true;
-        }
-        return false;
+        // if(source == map.UserControlledObject)
+        // {
+        //   map.RemoveMapObject(this);
+        //   return true;
+        // }
+        return true;
       }
 
     }

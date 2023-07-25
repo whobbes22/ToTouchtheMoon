@@ -46,7 +46,7 @@ namespace SadConsoleGame
 
         public virtual bool Touched(GameObject source, Map map)
         {
-          return false;
+          return true;
         }
 
         public void RestoreMap(Map map) => 
