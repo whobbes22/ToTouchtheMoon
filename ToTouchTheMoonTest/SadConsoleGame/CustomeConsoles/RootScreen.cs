@@ -43,9 +43,20 @@ namespace SadConsoleGame
           _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Right, _map);
           handled = true;
       }
+
+    // ******* numpad directions ****
+
+    if(keyboard.IsKeyPressed(Keys.NumPad1))
+      {
+        _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Down + Direction.Left, _map);
+        handled = true;
+      }
+
+
       return handled;
     }
 
+    
 
   }
 }

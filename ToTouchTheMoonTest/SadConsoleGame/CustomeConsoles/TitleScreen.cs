@@ -1,9 +1,9 @@
 using System;
 using SadConsole.Input;
 
-namespace FeatureDemo.CustomConsoles
+namespace SadConsoleGame
 {
-    class AutoTypingConsole : Console
+    public class AutoTypingConsole : Console
     {
         SadConsole.Instructions.DrawString typingInstruction;
 
