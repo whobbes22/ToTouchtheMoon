@@ -50,6 +50,38 @@ namespace SadConsoleGame
       {
         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Down + Direction.Left, _map);
         handled = true;
+      } else if (keyboard.IsKeyPressed(Keys.NumPad2))
+      {
+         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Down, _map);
+        handled = true;
+      }else if (keyboard.IsKeyPressed(Keys.NumPad3))
+      {
+         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Down + Direction.Right, _map);
+        handled = true;
+      }else if (keyboard.IsKeyPressed(Keys.NumPad4))
+      {
+         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Left, _map);
+        handled = true;
+      }else if (keyboard.IsKeyPressed(Keys.NumPad5))
+      {
+         _map.UserControlledObject.Move(_map.UserControlledObject.Position, _map);
+        handled = true;
+      }else if (keyboard.IsKeyPressed(Keys.NumPad6))
+      {
+         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Right, _map);
+        handled = true;
+      }else if (keyboard.IsKeyPressed(Keys.NumPad7))
+      {
+         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Up + Direction.Left, _map);
+        handled = true;
+      }else if (keyboard.IsKeyPressed(Keys.NumPad8))
+      {
+         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Up, _map);
+        handled = true;
+      }else if (keyboard.IsKeyPressed(Keys.NumPad9))
+      {
+         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Up + Direction.Right, _map);
+        handled = true;
       }
 
 
