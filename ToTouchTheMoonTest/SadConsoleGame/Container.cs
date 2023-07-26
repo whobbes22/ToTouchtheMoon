@@ -25,6 +25,33 @@ namespace SadConsoleGame
       consoles = new CustomConsole[] {
         // new CustomConsole(new )
       };
+
+      Children.Add(selectedConsoleContainer);
+      MoveNextConsole();
+    }
+
+    public void MoveNextConsole()
+    {
+      currentConsoleIndex++;
+
+      if(currentConsoleIndex >= consoles.Length)
+      {
+        currentConsoleIndex = 0;
+      }
+
+      selectedConsole = consoles[currentConsoleIndex].Console;
+      selectedConsoleContainer.Children.Clear();
+      selectedConsoleContainer.Children.Add(selectedConsole);
+
+      selectedConsole.IsVisible = true;
+      selectedConsole.IsFocused = true;
+
+      GameHost.Instance.FocusedScreenObjects.Set(selectedConsole);
+
+      if(selectedConsole is IResartable a)
+      {
+        a.Restart();
+      }
     }
   }
 }
