@@ -19,6 +19,7 @@ namespace SadConsoleGame
       
       Children.Add(_map.SurfaceObject);
       Children.Add(_statUI.SurfaceObject);
+      
     }
 
 

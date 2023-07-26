@@ -23,7 +23,7 @@ namespace SadConsoleGame
  
         private static void OnStart()
         {
-          Game.Instance.Screen = new RootScreen();
+          Game.Instance.Screen = new TitleScreen();
           Game.Instance.Screen.IsFocused = true;
           Game.Instance.DestroyDefaultStartingConsole();
         }

@@ -5,8 +5,13 @@ namespace SadConsoleGame
 {
     public class TitleScreen : Console
     {
-        public TitleScreen(): base(80, 23)
+        public TitleScreen(): base(120, 50)
         {
+          ScreenSurface _titleScreen = new ScreenSurface(120, 50);
+          _titleScreen.Position = new Point(0,0);
+          _titleScreen.Surface.DefaultBackground = Color.Green;
+
+          Children.Add(_titleScreen);
         }
 
         public override bool ProcessKeyboard(Keyboard keyboard)
