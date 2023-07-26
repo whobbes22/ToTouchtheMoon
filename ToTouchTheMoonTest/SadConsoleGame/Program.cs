@@ -26,6 +26,7 @@ namespace SadConsoleGame
             .ConfigureFonts((f) => f.UseBuiltinFontExtended());
 
         Game.Create(gameStartup);
+        Game.Instance.FrameUpdate += Instance_FrameUpdate;
         Game.Instance.Run();
         Game.Instance.Dispose();
       }
@@ -46,7 +47,13 @@ namespace SadConsoleGame
           Game.Instance.DestroyDefaultStartingConsole();
         }
 
-
+        private static void Instance_FrameUpdate(object sender, GameHost e)
+        {
+          if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.A))
+            SadConsole.Game.Instance.ToggleFullScreen();
+          // else if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.F4))
+          //   SadConsole.Game.Instance.ToggleFullScreen();
+        }
       
 
         
