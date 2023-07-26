@@ -1,10 +1,7 @@
 namespace TTtMGame.Equipment
 {
-  public class BodyEquipment : Core.Equipment
+  public class BodyEquipment 
   {
-    public static BodyEquipment None()
-    {
-      return new BodyEquipment{ Name = "None"};
-    }
+
   }
 }

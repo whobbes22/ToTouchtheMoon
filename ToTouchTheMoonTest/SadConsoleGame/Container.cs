@@ -1,57 +1,58 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using SadConsole;
-using SadConsole.Input;
-// using FeatureDemo.CustomConsoles;
-// using Console = SadConsole.Console;
-using SadRogue.Primitives;
-
-namespace SadConsoleGame
-{
-  class Container : ScreenObject
-  {
-    private int currentConsoleIndex = -1;
-    private IScreenObject selectedConsole;
-    private ScreenObject selectedConsoleContainer;
-    CustomConsole[] consoles;
+// using System;
+// using System.Collections.Generic;
+// using System.Text;
+// using SadConsole;
+// using SadConsole.Input;
+// // using FeatureDemo.CustomConsoles;
+// // using Console = SadConsole.Console;
+// using SadRogue.Primitives;
 
 
-    public Container()
-    {
-      selectedConsoleContainer = new ScreenObject();
-      selectedConsoleContainer.Position = (0, 10);
+// namespace SadConsoleGame
+// {
+//   class Container : ScreenObject
+//   {
+//     private int currentConsoleIndex = -1;
+//     private IScreenObject selectedConsole;
+//     private ScreenObject selectedConsoleContainer;
+//     CustomConsole[] consoles;
 
-      consoles = new CustomConsole[] {
-        // new CustomConsole(new )
-      };
 
-      Children.Add(selectedConsoleContainer);
-      MoveNextConsole();
-    }
+//     public Container()
+//     {
+//       selectedConsoleContainer = new ScreenObject();
+//       selectedConsoleContainer.Position = (0, 10);
 
-    public void MoveNextConsole()
-    {
-      currentConsoleIndex++;
+//       consoles = new CustomConsole[] {
+//         // new CustomConsole(new )
+//       };
 
-      if(currentConsoleIndex >= consoles.Length)
-      {
-        currentConsoleIndex = 0;
-      }
+//       Children.Add(selectedConsoleContainer);
+//       MoveNextConsole();
+//     }
 
-      selectedConsole = consoles[currentConsoleIndex].Console;
-      selectedConsoleContainer.Children.Clear();
-      selectedConsoleContainer.Children.Add(selectedConsole);
+//     public void MoveNextConsole()
+//     {
+//       currentConsoleIndex++;
 
-      selectedConsole.IsVisible = true;
-      selectedConsole.IsFocused = true;
+//       if(currentConsoleIndex >= consoles.Length)
+//       {
+//         currentConsoleIndex = 0;
+//       }
 
-      GameHost.Instance.FocusedScreenObjects.Set(selectedConsole);
+//       selectedConsole = consoles[currentConsoleIndex].Console;
+//       selectedConsoleContainer.Children.Clear();
+//       selectedConsoleContainer.Children.Add(selectedConsole);
 
-      if(selectedConsole is IResartable a)
-      {
-        a.Restart();
-      }
-    }
-  }
-}
+//       selectedConsole.IsVisible = true;
+//       selectedConsole.IsFocused = true;
+
+//       GameHost.Instance.FocusedScreenObjects.Set(selectedConsole);
+
+//       if(selectedConsole is IResartable a)
+//       {
+//         a.Restart();
+//       }
+//     }
+//   }
+// }

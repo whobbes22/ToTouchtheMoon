@@ -3,13 +3,12 @@ using SadConsole;
 using SadRogue.Primitives;
 using SadConsole.Input;
 
-
 namespace SadConsoleGame
 {
     internal class Program
     {
 
-      private static Container MainConsole;
+      // private static Container MainConsole;
 
       // 120, 50 is standard for now
       public static int MAIN_WIDTH = 120;
@@ -21,7 +20,7 @@ namespace SadConsoleGame
 
         Game.Configuration gameStartup = new Game.Configuration()
             .SetScreenSize(MAIN_WIDTH, MAIN_HEIGHT)
-            .OnStart(OnStart)
+            .OnStart(Init)
             .IsStartingScreenFocused(false)
             .ConfigureFonts((f) => f.UseBuiltinFontExtended());
 
@@ -31,17 +30,18 @@ namespace SadConsoleGame
         Game.Instance.Dispose();
       }
 
-        private static void OnStart()
+        private static void Init()
         {
           Random rand = new Random();
           int num = rand.Next(0,2);
-          if(num == 1)
-          {
-            Game.Instance.Screen = new TitleScreen();
-          } else 
-          {
-            Game.Instance.Screen = new RootScreen();
-          }
+          GameHost.Instance.Screen = new TitleScreen();
+          // if(num == 1)
+          // {
+          //   Game.Instance.Screen = new TitleScreen();
+          // } else 
+          // {
+          //   Game.Instance.Screen = new RootScreen();
+          // }
           
           Game.Instance.Screen.IsFocused = true;
           Game.Instance.DestroyDefaultStartingConsole();
@@ -49,8 +49,12 @@ namespace SadConsoleGame
 
         private static void Instance_FrameUpdate(object sender, GameHost e)
         {
-          if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.A))
-            SadConsole.Game.Instance.ToggleFullScreen();
+          // if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.N))
+          // {
+          //   SadConsole.GameHost.Instance.Screen = new RootScreen();
+          //   GameHost.Instance.Screen.IsFocused = true;
+          // }
+           
           // else if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.F4))
           //   SadConsole.Game.Instance.ToggleFullScreen();
         }
