@@ -1,5 +1,8 @@
-using System;
+using SadConsole;
 using SadConsole.Input;
+using SadConsoleGame;
+using SadRogue.Primitives;
+using System.Collections.Generic;
 
 namespace SadConsoleGame
 {
@@ -8,19 +11,19 @@ namespace SadConsoleGame
         public TitleScreen(): base(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY)
         {
 
-          int buttonWidth = 25;
-          var button1 = new SadConsole.UI.Controls.SelectionButton(buttonWidth,1);
-          var button2 = new SadConsole.UI.Controls.SelectionButton(buttonWidth,1);
+          // int buttonWidth = 25;
+          // var button1 = new SadConsole.UI.Controls.SelectionButton(buttonWidth,1);
+          // var button2 = new SadConsole.UI.Controls.SelectionButton(buttonWidth,1);
 
-          button1.Position= new Point(1,1);
-          button1.Text ="Test button";
-          button1.Click += StartGame_Click;
-          button1.SetNextSelection(ref button2);
+          // button1.Position= new Point(1,1);
+          // button1.Text ="Test button";
+          // button1.Click += StartGame_Click;
+          // button1.SetNextSelection(ref button2);
 
-          button2.Position = new SadRogue.Primitives.Point(3,3);
-          button2.Text = "second button";
-          button2.Click += StartGame_Click;
-          button2.SetNextSelection(ref button1);
+          // button2.Position = new SadRogue.Primitives.Point(3,3);
+          // button2.Text = "second button";
+          // button2.Click += StartGame_Click;
+          // button2.SetNextSelection(ref button1);
 
 
           
@@ -35,25 +38,32 @@ namespace SadConsoleGame
           _titleScreen.Print(5,8,"To Touch the Moon");
           _titleScreen.Print(5,15,"(N) New Game");
           _titleScreen.Print(5,18,"(L) Load Game (WIP)");
-          _titleScreen.Print(5,21, "(C) Credits (WIP)");
+          _titleScreen.Print(5,21, "(C) Credits");
 
          
 
          
-          // Children.Add(_titleScreen);
-          Controls.Add(button1);
-          Controls.Add(button2);
+          Children.Add(_titleScreen);
+          // Controls.Add(button1);
+          // Controls.Add(button2);
         }
 
-        public void ProcessKeyboard(Keyboard keyboard)
+        public override bool ProcessKeyboard(Keyboard keyboard)
         {
-          
+          bool handled = false;
           if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.N))
           {
             SadConsole.GameHost.Instance.Screen = new RootScreen();
             GameHost.Instance.Screen.IsFocused = true;
+            handled = true;
           }
-          
+          else if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.C))
+          {
+            SadConsole.GameHost.Instance.Screen = new CreditScreen();
+            GameHost.Instance.Screen.IsFocused = true;
+            handled = true;
+          }
+          return handled;
         }
 
         // private void Quit_Click(object? sender, EventArgs e)
