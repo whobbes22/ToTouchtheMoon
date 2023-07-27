@@ -33,7 +33,7 @@ namespace SadConsoleGame
         // need to convert asciiKey into a string
         foreach(AsciiKey key in keyboard.KeysPressed)
         {
-          keys += $" {key}";
+          keys += $" {key.Character}";
         }
         _statUI.RecentKeyPressed(keys);
         handled = true;
