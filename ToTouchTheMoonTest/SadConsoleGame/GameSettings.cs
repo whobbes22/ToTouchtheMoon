@@ -1,13 +1,10 @@
 ﻿
-  static class GameSettings
+namespace SadConsoleGame{
+
+  public static class Globals
   {
-      public const int GAME_WIDTH = 90;
-      public const int GAME_HEIGHT = 30;    
+    public const int GAME_WIDTH = 120;
+    public const int GAME_HEIGHT = 50;   
   }
 
-
-public static class GlobalConstant
-{
-  public const int GAME_WIDTH = 90;
-  public const int GAME_HEIGHT = 30;   
 }

@@ -11,15 +11,14 @@ namespace SadConsoleGame
       // private static Container MainConsole;
 
       // 120, 50 is standard for now
-      public static int MAIN_WIDTH = 120;
-      public static int MAIN_HEIGHT = 50;
+
       
       static void Main(string[] args)
       {
         Settings.WindowTitle = "To Touch the Moon";
 
         Game.Configuration gameStartup = new Game.Configuration()
-            .SetScreenSize(MAIN_WIDTH, MAIN_HEIGHT)
+            .SetScreenSize(Globals.GAME_WIDTH, Globals.GAME_HEIGHT)
             .OnStart(Init)
             .IsStartingScreenFocused(false)
             .ConfigureFonts((f) => f.UseBuiltinFontExtended());
@@ -32,6 +31,7 @@ namespace SadConsoleGame
 
         private static void Init()
         {
+          
           Random rand = new Random();
           int num = rand.Next(0,2);
           GameHost.Instance.Screen = new TitleScreen();

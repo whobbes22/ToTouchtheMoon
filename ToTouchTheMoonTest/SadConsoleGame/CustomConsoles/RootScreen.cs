@@ -39,6 +39,13 @@ namespace SadConsoleGame
         // handled = true;
       }
 
+      if(keyboard.IsKeyPressed(Keys.I))
+      {
+          SadConsole.GameHost.Instance.Screen = new InventoryScreen();
+          GameHost.Instance.Screen.IsFocused = true;
+          handled = true;
+      }
+
       // Movement up or down
       if(keyboard.IsKeyPressed(Keys.Up))
       {

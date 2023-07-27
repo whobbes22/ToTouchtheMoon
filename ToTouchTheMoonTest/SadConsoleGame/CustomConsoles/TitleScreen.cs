@@ -60,6 +60,8 @@ namespace SadConsoleGame
           else if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.C))
           {
             SadConsole.GameHost.Instance.Screen = new CreditScreen();
+            SadConsole.GameHost.Instance.Screen = new TitleScreen();
+            
             GameHost.Instance.Screen.IsFocused = true;
             handled = true;
           }
