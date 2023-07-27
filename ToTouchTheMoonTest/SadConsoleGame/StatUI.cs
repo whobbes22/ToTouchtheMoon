@@ -42,9 +42,9 @@ namespace SadConsoleGame
         
       }
 
-      public void RecentKeyPressed()
+      public void RecentKeyPressed(string keys)
       {
-        _statSurface.Print(0,2,"Key Pressed: ",Color.Wheat);
+        _statSurface.Print(0,2,"Key Pressed: " + keys,Color.Wheat);
       }
 
     }

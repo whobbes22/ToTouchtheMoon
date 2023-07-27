@@ -26,6 +26,18 @@ namespace SadConsoleGame
     public override bool ProcessKeyboard(Keyboard keyboard)
     {
       bool handled = false;
+      
+      if(keyboard.HasKeysPressed)
+      {
+        string keys = "";
+        // need to convert asciiKey into a string
+        foreach(AsciiKey key in keyboard.KeysPressed)
+        {
+          keys += $" {key}";
+        }
+        _statUI.RecentKeyPressed(keys);
+        handled = true;
+      }
 
       // Movement up or down
       if(keyboard.IsKeyPressed(Keys.Up))
