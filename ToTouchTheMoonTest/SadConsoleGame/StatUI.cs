@@ -14,7 +14,7 @@ namespace SadConsoleGame
       public ScreenSurface SurfaceObject => _statSurface;
 
 
-      public StatUI(int mapWidth, int mapHeight)
+      public StatUI(int mapWidth, int mapHeight, int floorNumber)
       {
         _turnCounter = 0;
         _statSurface = new Console(mapWidth, mapHeight);
@@ -37,7 +37,7 @@ namespace SadConsoleGame
         _statSurface.Print(10,1,"HP: ",Color.Wheat);
         _statSurface.Print(20,1,"MP: ",Color.Wheat);
         _statSurface.Print(30,1,"EXP: ",Color.Wheat);
-        _statSurface.Print(100,1,"Location: ",Color.Wheat);
+        _statSurface.Print(100,1,"Location: " + floorNumber,Color.Wheat);
 
         
       }

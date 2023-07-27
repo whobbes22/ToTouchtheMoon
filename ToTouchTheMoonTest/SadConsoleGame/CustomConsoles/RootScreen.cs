@@ -8,27 +8,39 @@ namespace SadConsoleGame
 {
   public class RootScreen: ScreenObject
   {
-    private Map _map;
-    private StatUI _statUI;
+    private Map _map1;
+    private Map _map2;
 
+    private Map _currentMap;
+    private StatUI _statUI;
+    
+    private static int floorNumber = 1;
     private static List<IScreenObject> _locations;
     public RootScreen()
     {
+      GenerateMap();
 
-      _map = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,2,5);
-      _statUI = new StatUI(Game.Instance.ScreenCellsX, 5);
-      
-      Children.Add(_map.SurfaceObject);
-      Children.Add(_statUI.SurfaceObject);
-      
     }
 
     public void GenerateMap()
     {
       
+      _map1 = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,2,5);
+      _map2 = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,10,2);
+      _statUI = new StatUI(Game.Instance.ScreenCellsX, 5,floorNumber);
+      
+      _currentMap = _map1;
+      RefocusCurrentMap();
+      
     }
 
-
+    public void RefocusCurrentMap()
+    {
+      Children.Clear();
+      Children.Add(_currentMap.SurfaceObject);
+      Children.Add(_statUI.SurfaceObject);
+    }
+    
     public override bool ProcessKeyboard(Keyboard keyboard)
     {
       bool handled = false;
@@ -44,42 +56,71 @@ namespace SadConsoleGame
         _statUI.RecentKeyPressed(keys);
         // handled = true;
       }
-
+      // **************** INVENTORY *************
       if(keyboard.IsKeyPressed(Keys.I))
       {
           SadConsole.GameHost.Instance.Screen = new InventoryScreen();
           GameHost.Instance.Screen.IsFocused = true;
           handled = true;
       }
+      
+
+
+      // if(keyboard.IsKeyPressed(Keys.Q))
+      // {
+      //   handled = true;
+      //   _map.SurfaceObject.IsFocused = false;
+      //   _map.SurfaceObject.IsVisible = false;
+      // }
+      // if(keyboard.IsKeyPressed(Keys.W))
+      // {
+      //   handled = true;
+      //   _map.SurfaceObject.IsVisible = true;
+      // }
+
+      // ******************* Staris ******************
+      if(keyboard.IsKeyPressed(Keys.OemComma))
+      {
+        _map2 = _currentMap;
+        _currentMap = _map1;
+        RefocusCurrentMap();
+        handled = true;
+        floorNumber = 1;
+      }
 
       if(keyboard.IsKeyPressed(Keys.Decimal))
       {
-        SadConsole.GameHost.Instance.Screen = new PlayAreaTwoScreen();
-        GameHost.Instance.Screen.IsFocused = true;
-         handled = true;
+        
+        _map1 = _currentMap;
+        _currentMap = _map2;
+        RefocusCurrentMap();
+        floorNumber =2;
+        handled = true;
+        // floorNumber++;
       }
+
 
       
       // Movement up or down
       if(keyboard.IsKeyPressed(Keys.Up))
       {
-        _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Up, _map);
+        _currentMap.UserControlledObject.Move(_currentMap.UserControlledObject.Position + Direction.Up, _currentMap);
         
         handled = true;
       } else if(keyboard.IsKeyPressed(Keys.Down))
       {
-        _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Down, _map);
+        _currentMap.UserControlledObject.Move(_currentMap.UserControlledObject.Position + Direction.Down, _currentMap);
         handled = true;
       }
       // Movement left or right
       if (keyboard.IsKeyPressed(Keys.Left))
       {
-          _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Left, _map);
+          _currentMap.UserControlledObject.Move(_currentMap.UserControlledObject.Position + Direction.Left, _currentMap);
           handled = true;
       }
       else if (keyboard.IsKeyPressed(Keys.Right))
       {
-          _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Right, _map);
+          _currentMap.UserControlledObject.Move(_currentMap.UserControlledObject.Position + Direction.Right, _currentMap);
           handled = true;
       }
 
@@ -87,39 +128,39 @@ namespace SadConsoleGame
 
     if(keyboard.IsKeyPressed(Keys.NumPad1))
       {
-        _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Down + Direction.Left, _map);
+        _currentMap.UserControlledObject.Move(_currentMap.UserControlledObject.Position + Direction.Down + Direction.Left, _currentMap);
         handled = true;
       } else if (keyboard.IsKeyPressed(Keys.NumPad2))
       {
-         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Down, _map);
+         _currentMap.UserControlledObject.Move(_currentMap.UserControlledObject.Position + Direction.Down, _currentMap);
         handled = true;
       }else if (keyboard.IsKeyPressed(Keys.NumPad3))
       {
-         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Down + Direction.Right, _map);
+         _currentMap.UserControlledObject.Move(_currentMap.UserControlledObject.Position + Direction.Down + Direction.Right, _currentMap);
         handled = true;
       }else if (keyboard.IsKeyPressed(Keys.NumPad4))
       {
-         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Left, _map);
+         _currentMap.UserControlledObject.Move(_currentMap.UserControlledObject.Position + Direction.Left, _currentMap);
         handled = true;
       }else if (keyboard.IsKeyPressed(Keys.NumPad5))
       {
-         _map.UserControlledObject.Move(_map.UserControlledObject.Position, _map);
+         _currentMap.UserControlledObject.Move(_currentMap.UserControlledObject.Position, _currentMap);
         handled = true;
       }else if (keyboard.IsKeyPressed(Keys.NumPad6))
       {
-         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Right, _map);
+         _currentMap.UserControlledObject.Move(_currentMap.UserControlledObject.Position + Direction.Right, _currentMap);
         handled = true;
       }else if (keyboard.IsKeyPressed(Keys.NumPad7))
       {
-         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Up + Direction.Left, _map);
+         _currentMap.UserControlledObject.Move(_currentMap.UserControlledObject.Position + Direction.Up + Direction.Left, _currentMap);
         handled = true;
       }else if (keyboard.IsKeyPressed(Keys.NumPad8))
       {
-         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Up, _map);
+         _currentMap.UserControlledObject.Move(_currentMap.UserControlledObject.Position + Direction.Up, _currentMap);
         handled = true;
       }else if (keyboard.IsKeyPressed(Keys.NumPad9))
       {
-         _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Up + Direction.Right, _map);
+         _currentMap.UserControlledObject.Move(_currentMap.UserControlledObject.Position + Direction.Up + Direction.Right, _currentMap);
         handled = true;
       }
 

@@ -11,15 +11,26 @@ namespace SadConsoleGame
     private Map _map;
     private StatUI _statUI;
 
+
     public PlayAreaTwoScreen()
     {
 
       _map = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,10,2);
-      _statUI = new StatUI(Game.Instance.ScreenCellsX, 5);
+      _statUI = new StatUI(Game.Instance.ScreenCellsX, 5, 2);
       
+      
+      addMapObject();
+      addUIObject();
+      
+    }
+
+    public void addMapObject()
+    {
       Children.Add(_map.SurfaceObject);
+    }
+    public void addUIObject()
+    {
       Children.Add(_statUI.SurfaceObject);
-      
     }
 
 
@@ -31,6 +42,7 @@ namespace SadConsoleGame
       {
         SadConsole.GameHost.Instance.Screen = new RootScreen();
         GameHost.Instance.Screen.IsFocused = true;
+        
         handled = true;
       }
       // Movement up or down
