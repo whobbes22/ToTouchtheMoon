@@ -33,6 +33,8 @@ namespace SadConsoleGame
           CreateTreasure();
           CreateMonster();
         }
+        CreateDownStairs();
+        CreateUpStairs();
 
       }
 
@@ -50,6 +52,38 @@ namespace SadConsoleGame
                                 (x, y, color) => _mapSurface.Surface[x, y].Background = color);
       }
 
+
+     public void CreateDownStairs()
+      {
+        for(int i = 0; i < 100; i++)
+        {
+          Point randomPosition = new Point(Game.Instance.Random.Next(0,_mapSurface.Width), Game.Instance.Random.Next(0,_mapSurface.Surface.Height));
+
+          bool foundObject = _mapObjects.Any(obj => obj.Position == randomPosition );
+          if(foundObject) continue;
+
+         
+          GameObject dStair = new GameObject(new ColoredGlyph(Color.White, Color.Black, '>'),
+                                                    randomPosition, _mapSurface);
+          _mapObjects.Add(dStair);
+          break;
+        }
+      }
+      public void CreateUpStairs()
+      {
+        for(int i = 0; i < 100; i++)
+        {
+          Point randomPosition = new Point(Game.Instance.Random.Next(0,_mapSurface.Width), Game.Instance.Random.Next(0,_mapSurface.Surface.Height));
+
+          bool foundObject = _mapObjects.Any(obj => obj.Position == randomPosition );
+          if(foundObject) continue;
+
+          GameObject uStair = new GameObject(new ColoredGlyph(Color.White, Color.Black, '<'),
+                                                    randomPosition, _mapSurface);
+          _mapObjects.Add(uStair);
+          break;
+        }
+      }
       public void CreateTreasure()
       {
         for(int i = 0; i < 1000; i++)

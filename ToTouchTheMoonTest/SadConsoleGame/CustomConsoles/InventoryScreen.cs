@@ -8,7 +8,7 @@ namespace SadConsoleGame
         public InventoryScreen(): base(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY)
         {
           
-          ScreenSurface _inventoryScreen = new ScreenSurface(120,50);
+          ScreenSurface _inventoryScreen = new ScreenSurface(Game.Instance.ScreenCellsX,Game.Instance.ScreenCellsY);
           _inventoryScreen.Position = new Point(0,0);
           _inventoryScreen.Surface.DefaultBackground = Color.Black;
 

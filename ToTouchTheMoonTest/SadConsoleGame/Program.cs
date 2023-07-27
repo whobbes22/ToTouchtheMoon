@@ -34,7 +34,9 @@ namespace SadConsoleGame
           
           Random rand = new Random();
           int num = rand.Next(0,2);
+          
           GameHost.Instance.Screen = new TitleScreen();
+         
           // if(num == 1)
           // {
           //   Game.Instance.Screen = new TitleScreen();

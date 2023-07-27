@@ -8,7 +8,7 @@ namespace SadConsoleGame
         public CreditScreen(): base(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY)
         {
           
-          ScreenSurface _creditScreen = new ScreenSurface(119, 50);
+          ScreenSurface _creditScreen = new ScreenSurface(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY);
           _creditScreen.Position = new Point(0,0);
           _creditScreen.Surface.DefaultBackground = Color.Black;
 
