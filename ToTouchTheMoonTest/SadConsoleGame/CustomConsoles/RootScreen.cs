@@ -26,7 +26,7 @@ namespace SadConsoleGame
     {
       
       _map1 = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,2,5);
-      _map2 = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,10,2);
+      _map2 = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,15,2);
       _statUI = new StatUI(Game.Instance.ScreenCellsX, 5,floorNumber);
       
       _currentMap = _map1;
@@ -36,10 +36,11 @@ namespace SadConsoleGame
 
     public void RefocusCurrentMap()
     {
+      
       Children.Clear();
       Children.Add(_currentMap.SurfaceObject);
       Children.Add(_statUI.SurfaceObject);
-    }
+  }
     
     public override bool ProcessKeyboard(Keyboard keyboard)
     {
@@ -83,9 +84,11 @@ namespace SadConsoleGame
       {
         _map2 = _currentMap;
         _currentMap = _map1;
+        floorNumber = 1;
+
         RefocusCurrentMap();
         handled = true;
-        floorNumber = 1;
+        
       }
 
       if(keyboard.IsKeyPressed(Keys.Decimal))
@@ -93,8 +96,9 @@ namespace SadConsoleGame
         
         _map1 = _currentMap;
         _currentMap = _map2;
+        floorNumber = 2;
+
         RefocusCurrentMap();
-        floorNumber =2;
         handled = true;
         // floorNumber++;
       }
@@ -167,6 +171,7 @@ namespace SadConsoleGame
       if(handled)
       {
         _statUI.IncreaseTurnCounter();
+        _statUI.updateFloorNumber(floorNumber);
       }
       return handled;
     }

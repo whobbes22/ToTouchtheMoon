@@ -42,6 +42,10 @@ namespace SadConsoleGame
         
       }
 
+      public void updateFloorNumber(int num)
+      {
+        _statSurface.Print(100,1,"Location: " + num,Color.Wheat);
+      }
       public void RecentKeyPressed(string keys)
       {
         _statSurface.Print(0,2,"Key Pressed: " + keys,Color.Wheat);
