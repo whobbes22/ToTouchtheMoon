@@ -14,7 +14,7 @@ namespace SadConsoleGame
     public RootScreen()
     {
 
-      _map = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3);
+      _map = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,2,5);
       _statUI = new StatUI(Game.Instance.ScreenCellsX, 5);
       
       Children.Add(_map.SurfaceObject);

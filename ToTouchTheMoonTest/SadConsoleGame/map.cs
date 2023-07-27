@@ -15,7 +15,7 @@ namespace SadConsoleGame
       public ScreenSurface SurfaceObject => _mapSurface;
       public GameObject UserControlledObject { get; set; }
 
-      public Map(int mapWidth, int mapHeight)
+      public Map(int mapWidth, int mapHeight, int monsterAmount,int treasureAmount)
       {
         _mapObjects = new List<GameObject>();
         _mapSurface = new ScreenSurface(mapWidth, mapHeight);
@@ -28,11 +28,16 @@ namespace SadConsoleGame
         UserControlledObject = new GameObject(new ColoredGlyph(Color.White, Color.Black, 64), 
                                             _mapSurface.Surface.Area.Center, _mapSurface);
 
-        for(int i = 0; i<4;i++)
+        for(int i = 0; i < monsterAmount; i++)
         {
-          CreateTreasure();
           CreateMonster();
         }
+
+        for(int i = 0; i < treasureAmount; i++)
+        {
+          CreateTreasure();
+        }
+
         CreateDownStairs();
         CreateUpStairs();
 

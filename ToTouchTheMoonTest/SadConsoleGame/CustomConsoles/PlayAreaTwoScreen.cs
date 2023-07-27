@@ -14,7 +14,7 @@ namespace SadConsoleGame
     public PlayAreaTwoScreen()
     {
 
-      _map = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3);
+      _map = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,10,2);
       _statUI = new StatUI(Game.Instance.ScreenCellsX, 5);
       
       Children.Add(_map.SurfaceObject);
