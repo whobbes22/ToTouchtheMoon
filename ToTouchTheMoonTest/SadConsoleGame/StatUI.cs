@@ -31,12 +31,20 @@ namespace SadConsoleGame
         _statSurface.Print(50,0,"Wi: ",Color.Wheat);
         _statSurface.Print(60,0,"Ch: ",Color.Wheat);
         _statSurface.Print(70,0,"Sp: ",Color.Wheat);
+        _statSurface.Print(70,0,"Turn: ",Color.Wheat);
 
         _statSurface.Print(0,1,"DV: ",Color.Wheat);
         _statSurface.Print(10,1,"HP: ",Color.Wheat);
         _statSurface.Print(20,1,"MP: ",Color.Wheat);
         _statSurface.Print(30,1,"EXP: ",Color.Wheat);
         _statSurface.Print(100,1,"Location: ",Color.Wheat);
+
+        
+      }
+
+      public void RecentKeyPressed()
+      {
+        _statSurface.Print(0,2,"Key Pressed: ",Color.Wheat);
       }
 
     }

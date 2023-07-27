@@ -49,10 +49,15 @@ namespace SadConsoleGame
 
         private static void Instance_FrameUpdate(object sender, GameHost e)
         {
-          // if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.N))
+          
+          // if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.A))
           // {
-          //   SadConsole.GameHost.Instance.Screen = new RootScreen();
-          //   GameHost.Instance.Screen.IsFocused = true;
+          //   ScreenSurface _keyLogger = new ScreenSurface(GameHost.Instance.ScreenCellsX, GameHost.Instance.ScreenCellsY-1);
+          //   _keyLogger.Surface.DefaultBackground = Color.Green;
+          //   _keyLogger.Position = new Point(0,0);
+          //   _keyLogger.Surface.DefaultBackground = Color.Black;
+          //   _keyLogger.Print(0,0,"Most Recently Key Pressed: ");
+          //   SadConsole.GameHost.Instance.Screen.Children.Add(_keyLogger);
           // }
            
           // else if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.F4))
