@@ -36,7 +36,7 @@ namespace SadConsoleGame
           keys += $" {key.Character}";
         }
         _statUI.RecentKeyPressed(keys);
-        handled = true;
+        // handled = true;
       }
 
       // Movement up or down
@@ -102,7 +102,10 @@ namespace SadConsoleGame
         handled = true;
       }
 
-
+      if(handled)
+      {
+        _statUI.IncreaseTurnCounter();
+      }
       return handled;
     }
 

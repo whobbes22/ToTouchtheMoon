@@ -35,7 +35,7 @@ namespace SadConsoleGame
             if(!foundObject.Touched(this, map))
               return false;
           }
-
+          
           _mapAppearance.CopyAppearanceTo(map.SurfaceObject.Surface[Position]);
           map.SurfaceObject.Surface[newPosition].CopyAppearanceTo(_mapAppearance);
 

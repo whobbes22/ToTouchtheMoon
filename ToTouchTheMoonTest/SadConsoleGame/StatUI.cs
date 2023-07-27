@@ -10,13 +10,13 @@ namespace SadConsoleGame
     public class StatUI
     {
       private ScreenSurface _statSurface;
-    
+      private int _turnCounter{get;set;}
       public ScreenSurface SurfaceObject => _statSurface;
 
 
       public StatUI(int mapWidth, int mapHeight)
       {
-      
+        _turnCounter = 0;
         _statSurface = new Console(mapWidth, mapHeight);
         _statSurface.UseMouse = false;
         _statSurface.Position = new Point(0,Game.Instance.ScreenCellsY - 3);
@@ -31,7 +31,7 @@ namespace SadConsoleGame
         _statSurface.Print(50,0,"Wi: ",Color.Wheat);
         _statSurface.Print(60,0,"Ch: ",Color.Wheat);
         _statSurface.Print(70,0,"Sp: ",Color.Wheat);
-        _statSurface.Print(70,0,"Turn: ",Color.Wheat);
+        _statSurface.Print(70,0,"Turn: " + _turnCounter,Color.Wheat);
 
         _statSurface.Print(0,1,"DV: ",Color.Wheat);
         _statSurface.Print(10,1,"HP: ",Color.Wheat);
@@ -47,5 +47,10 @@ namespace SadConsoleGame
         _statSurface.Print(0,2,"Key Pressed: " + keys,Color.Wheat);
       }
 
+      public void IncreaseTurnCounter()
+      {
+        _statSurface.Print(70,0,"Turn: " + _turnCounter,Color.Wheat);
+        _turnCounter++;
+      }
     }
 }
