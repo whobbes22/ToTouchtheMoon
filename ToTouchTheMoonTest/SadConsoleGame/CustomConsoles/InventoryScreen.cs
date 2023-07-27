@@ -3,9 +3,9 @@ using SadConsole.Input;
 
 namespace SadConsoleGame
 {
-    public class InventoryScreen : SadConsole.UI.ControlsConsole
+    public class InventoryScreen : ScreenObject
     {
-        public InventoryScreen(): base(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY)
+        public InventoryScreen()
         {
           
           ScreenSurface _inventoryScreen = new ScreenSurface(Game.Instance.ScreenCellsX,Game.Instance.ScreenCellsY);
@@ -14,7 +14,7 @@ namespace SadConsoleGame
 
           _inventoryScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3,"Inventory");
           _inventoryScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 2,"something");
-          
+          _inventoryScreen.Print(0,Game.Instance.ScreenCellsY - 2,"(z) to go back");
           Children.Add(_inventoryScreen);
         }
         public override bool ProcessKeyboard(Keyboard keyboard)

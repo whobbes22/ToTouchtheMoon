@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace SadConsoleGame
 {
-    public class Map
+    public class Map 
     {
       private List<GameObject> _mapObjects;
       private ScreenSurface _mapSurface;

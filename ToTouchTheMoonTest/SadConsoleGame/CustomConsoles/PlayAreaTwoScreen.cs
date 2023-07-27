@@ -27,6 +27,12 @@ namespace SadConsoleGame
     {
       bool handled = false;
 
+      if(keyboard.IsKeyPressed(Keys.OemComma))
+      {
+        SadConsole.GameHost.Instance.Screen = new RootScreen();
+        GameHost.Instance.Screen.IsFocused = true;
+        handled = true;
+      }
       // Movement up or down
       if(keyboard.IsKeyPressed(Keys.Up))
       {

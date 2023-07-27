@@ -11,6 +11,7 @@ namespace SadConsoleGame
     private Map _map;
     private StatUI _statUI;
 
+    private static List<IScreenObject> _locations;
     public RootScreen()
     {
 
@@ -19,6 +20,11 @@ namespace SadConsoleGame
       
       Children.Add(_map.SurfaceObject);
       Children.Add(_statUI.SurfaceObject);
+      
+    }
+
+    public void GenerateMap()
+    {
       
     }
 
@@ -46,6 +52,14 @@ namespace SadConsoleGame
           handled = true;
       }
 
+      if(keyboard.IsKeyPressed(Keys.Decimal))
+      {
+        SadConsole.GameHost.Instance.Screen = new PlayAreaTwoScreen();
+        GameHost.Instance.Screen.IsFocused = true;
+         handled = true;
+      }
+
+      
       // Movement up or down
       if(keyboard.IsKeyPressed(Keys.Up))
       {

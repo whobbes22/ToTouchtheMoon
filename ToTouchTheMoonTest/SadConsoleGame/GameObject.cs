@@ -29,7 +29,9 @@ namespace SadConsoleGame
         public bool Move(Point newPosition, Map map)
         { 
           if(!map.SurfaceObject.Surface.IsValidCell(newPosition.X, newPosition.Y)) return false;
-          
+
+
+         //problematic line 
           if(map.TryGetMapObject(newPosition, out GameObject foundObject))
           {
             if(!foundObject.Touched(this, map))
@@ -46,7 +48,7 @@ namespace SadConsoleGame
 
         public virtual bool Touched(GameObject source, Map map)
         {
-          return true;
+          return false;
         }
 
         public void RestoreMap(Map map) => 
