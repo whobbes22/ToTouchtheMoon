@@ -44,7 +44,8 @@ namespace SadConsoleGame
 
       public void updateFloorNumber(int num)
       {
-        _statSurface.Print(100,1,"Location: " + num,Color.Wheat);
+        // extra space to remove numbers going between 10->9
+        _statSurface.Print(100,1,"Location: " + num + "  ",Color.Wheat);
       }
       public void RecentKeyPressed(string keys)
       {

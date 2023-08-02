@@ -15,11 +15,12 @@ namespace SadConsoleGame
     private StatUI _statUI;
     
     private static int floorNumber = 1;
-    private static List<IScreenObject> _locations;
+    private static Dictionary<int,Map> _locations;
+  
     public RootScreen()
     {
       GenerateMap();
-
+      
     }
 
     public void GenerateMap()
@@ -30,6 +31,7 @@ namespace SadConsoleGame
       _statUI = new StatUI(Game.Instance.ScreenCellsX, 5,floorNumber);
       
       _currentMap = _map1;
+      
       RefocusCurrentMap();
       
     }
@@ -84,7 +86,15 @@ namespace SadConsoleGame
       {
         _map2 = _currentMap;
         _currentMap = _map1;
-        floorNumber = 1;
+        
+        if(floorNumber <=1)
+        {
+          floorNumber = 1;
+        } else
+        {
+          floorNumber--;
+        }
+        //floorNumber = (floorNumber <=1) ? 1 : floorNumber--;
 
         RefocusCurrentMap();
         handled = true;
@@ -96,7 +106,8 @@ namespace SadConsoleGame
         
         _map1 = _currentMap;
         _currentMap = _map2;
-        floorNumber = 2;
+        
+        floorNumber++;
 
         RefocusCurrentMap();
         handled = true;
