@@ -15,7 +15,7 @@ namespace SadConsoleGame
     private StatUI _statUI;
     
     private static int floorNumber = 1;
-    private static Dictionary<int,Map> _locations;
+    private static Dictionary<int,Map> _locations = new Dictionary<int, Map>();
   
     public RootScreen()
     {
@@ -25,13 +25,15 @@ namespace SadConsoleGame
 
     public void GenerateMap()
     {
-      
-      _map1 = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,2,5);
-      _map2 = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,15,2);
+      //Map _map = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,3,5);
+
+      // _map1 = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,2,5);
+      // _map2 = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,15,2);
       _statUI = new StatUI(Game.Instance.ScreenCellsX, 5,floorNumber);
       
-      _currentMap = _map1;
-      
+      _currentMap = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 3,3,5);
+
+      _locations.Add(floorNumber,_currentMap);
       RefocusCurrentMap();
       
     }
@@ -84,8 +86,8 @@ namespace SadConsoleGame
       // ******************* Staris ******************
       if(keyboard.IsKeyPressed(Keys.OemComma))
       {
-        _map2 = _currentMap;
-        _currentMap = _map1;
+        // _map2 = _currentMap;
+        // _currentMap = _map1;
         
         if(floorNumber <=1)
         {
@@ -96,6 +98,7 @@ namespace SadConsoleGame
         }
         //floorNumber = (floorNumber <=1) ? 1 : floorNumber--;
 
+        _currentMap = _locations[floorNumber];
         RefocusCurrentMap();
         handled = true;
         
@@ -104,10 +107,18 @@ namespace SadConsoleGame
       if(keyboard.IsKeyPressed(Keys.Decimal))
       {
         
-        _map1 = _currentMap;
-        _currentMap = _map2;
+        // _map1 = _currentMap;
+        // _currentMap = _map2;
         
         floorNumber++;
+        
+        if(_locations.ContainsKey(floorNumber))
+        {
+          _currentMap = _locations[floorNumber];
+        } else
+        {
+          GenerateMap();
+        }
 
         RefocusCurrentMap();
         handled = true;
