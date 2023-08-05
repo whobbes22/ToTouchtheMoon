@@ -55,14 +55,85 @@ namespace SadConsoleGame
           if(characterCreationLocation == 1){
             if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.LeftShift) || SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.RightShift))
             {
-              _CharacterCreationScreen.Print(1, 1,"shift pressed");
-              handled = true;
-            }
-            if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.Z))
+              if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.A))
               {
-                // SadConsole.GameHost.Instance.Screen = new RootScreen();
-                // GameHost.Instance.Screen.IsFocused = true;
-                // handled = true;
+                _CharacterCreationScreen.Print(1, 1,"upper A pressed");
+                handled = true;
+              }
+  
+            }
+
+            else if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.A))
+              {
+                _CharacterCreationScreen.Print(1, 1,"lower a pressed");
+                characterCreationLocation++;
+                handled = true;
+              }
+            else if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.B))
+              {
+                _CharacterCreationScreen.Print(1, 1,"lower b pressed");
+                characterCreationLocation++;
+                handled = true;
+              }
+            else if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.C))
+              {
+                _CharacterCreationScreen.Print(1, 1,"lower c pressed");
+                characterCreationLocation++;
+                handled = true;
+              }
+            else if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.D))
+              {
+                _CharacterCreationScreen.Print(1, 1,"lower d pressed");
+                characterCreationLocation++;
+                handled = true;
+              }
+            else if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.E))
+              {
+                _CharacterCreationScreen.Print(1, 1,"lower e pressed");
+                characterCreationLocation++;
+                handled = true;
+              }
+            else if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.F))
+              {
+                _CharacterCreationScreen.Print(1, 1,"lower f pressed");
+                characterCreationLocation++;
+                handled = true;
+              }
+            else if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.G))
+              {
+                _CharacterCreationScreen.Print(1, 1,"lower g pressed");
+                characterCreationLocation++;
+                handled = true;
+              }
+            else if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.H))
+              {
+                _CharacterCreationScreen.Print(1, 1,"lower h pressed");
+                characterCreationLocation++;
+                handled = true;
+              }
+            else if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.I))
+              {
+                _CharacterCreationScreen.Print(1, 1,"lower i pressed");
+                characterCreationLocation++;
+                handled = true;
+              }
+            else if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.J))
+              {
+                _CharacterCreationScreen.Print(1, 1,"lower j pressed");
+                characterCreationLocation++;
+                handled = true;
+              }
+            else if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.K))
+              {
+                _CharacterCreationScreen.Print(1, 1,"lower k pressed");
+                characterCreationLocation++;
+                handled = true;
+              }
+            else if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.L))
+              {
+                _CharacterCreationScreen.Print(1, 1,"lower l pressed");
+                characterCreationLocation++;
+                handled = true;
               }
           }
           // ********************** Sex *********************
@@ -86,6 +157,7 @@ namespace SadConsoleGame
             
           }
 
+          characterCreationLocation = 1;
           return handled;
         }
     }
