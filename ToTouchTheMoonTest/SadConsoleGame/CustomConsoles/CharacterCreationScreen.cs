@@ -12,21 +12,25 @@ namespace SadConsoleGame
           _CharacterCreationScreen.Position = new Point(0,0);
           _CharacterCreationScreen.Surface.DefaultBackground = Color.Black;
 
+          int x = GameHost.Instance.ScreenCellsX / 10;
+          int y = GameHost.Instance.ScreenCellsY / 10;
+          int offsetX = 2;
+          int secondOffSetX = 50;  
           // _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3,"Character Creation");
-          _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 2,"Choose a Celestial Month");
+          _CharacterCreationScreen.Print(x,y,"Choose A Celestial Month");
 
-          _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 4,"Eagle");
-          _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 6,"Swordfish");
-          _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 8,"Gaia Major");
-          _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 10,"Hare");
-          _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 12,"Crane");
-          _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 14,"Sun");
-          _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 16,"Fox");
-          _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 18,"Flying Fish");
-          _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 20,"Gaia Minor");
-          _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 22,"little Horse");
-          _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 24,"Lynx");
-          _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 26,"Moon");
+          _CharacterCreationScreen.Print(x + offsetX, y + 4,"[Aa] Eagle");
+          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 4,"[Bb] Swordfish");
+          _CharacterCreationScreen.Print(x + offsetX, y + 8,"[Cc] Gaia Major");
+          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 8,"[Dd] Hare");
+          _CharacterCreationScreen.Print(x + offsetX, y + 12,"[Ee] Crane");
+          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 12,"[Ff] Sun");
+          _CharacterCreationScreen.Print(x + offsetX, y + 16,"[Gg] Fox");
+          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 16,"[Hh] Flying Fish");
+          _CharacterCreationScreen.Print(x + offsetX, y + 20,"[Ii] Gaia Minor");
+          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 20,"[Jj] little Horse");
+          _CharacterCreationScreen.Print(x + offsetX, y + 24,"[Kk] Lynx");
+          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 24,"[Ll] Moon");
 
           // _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 2,"Sex");
           // _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 2,"Race");
