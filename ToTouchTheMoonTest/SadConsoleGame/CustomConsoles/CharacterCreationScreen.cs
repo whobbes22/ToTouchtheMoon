@@ -47,17 +47,24 @@ namespace SadConsoleGame
           // _CharacterCreationScreen.Print(0,Game.Instance.ScreenCellsY - 2,"(z) to go back");
           Children.Add(_CharacterCreationScreen);
         }
+
+        
         public override bool ProcessKeyboard(Keyboard keyboard)
         {
           bool handled = false;
 
           // ********************** Month *********************
           if(characterCreationLocation == 1){
-            if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.LeftShift) || SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.RightShift))
+            if(SadConsole.GameHost.Instance.Keyboard.IsKeyDown(Keys.LeftShift) || SadConsole.GameHost.Instance.Keyboard.IsKeyDown(Keys.RightShift))
             {
               if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.A))
               {
                 _CharacterCreationScreen.Print(1, 1,"upper A pressed");
+                handled = true;
+              }
+              else if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.B))
+              {
+                _CharacterCreationScreen.Print(1, 1,"upper B pressed");
                 handled = true;
               }
   
@@ -158,7 +165,7 @@ namespace SadConsoleGame
           }
 
           characterCreationLocation = 1;
-          return handled;
+          return false;
         }
     }
 }
