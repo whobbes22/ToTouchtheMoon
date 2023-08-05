@@ -5,6 +5,7 @@ namespace SadConsoleGame
 {
     public class CharacterCreationScreen : ScreenObject
     {
+      private int characterCreationLocation = 1
         public CharacterCreationScreen()
         {
           
@@ -19,18 +20,22 @@ namespace SadConsoleGame
           // _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3,"Character Creation");
           _CharacterCreationScreen.Print(x,y,"Choose A Celestial Month");
 
-          _CharacterCreationScreen.Print(x + offsetX, y + 4,"[Aa] Eagle");
-          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 4,"[Bb] Swordfish");
-          _CharacterCreationScreen.Print(x + offsetX, y + 8,"[Cc] Gaia Major");
-          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 8,"[Dd] Hare");
-          _CharacterCreationScreen.Print(x + offsetX, y + 12,"[Ee] Crane");
-          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 12,"[Ff] Sun");
-          _CharacterCreationScreen.Print(x + offsetX, y + 16,"[Gg] Fox");
-          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 16,"[Hh] Flying Fish");
-          _CharacterCreationScreen.Print(x + offsetX, y + 20,"[Ii] Gaia Minor");
-          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 20,"[Jj] little Horse");
-          _CharacterCreationScreen.Print(x + offsetX, y + 24,"[Kk] Lynx");
-          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 24,"[Ll] Moon");
+          _CharacterCreationScreen.Print(x + offsetX, y + 4,"[aA] Eagle");
+          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 4,"[bB] Swordfish");
+          _CharacterCreationScreen.Print(x + offsetX, y + 8,"[cC] Gaia Major");
+          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 8,"[dD] Hare");
+          _CharacterCreationScreen.Print(x + offsetX, y + 12,"[eE] Crane");
+          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 12,"[fF] Sun");
+          _CharacterCreationScreen.Print(x + offsetX, y + 16,"[gG] Fox");
+          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 16,"[hH] Flying Fish");
+          _CharacterCreationScreen.Print(x + offsetX, y + 20,"[iI] Gaia Minor");
+          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 20,"[jJ] little Horse");
+          _CharacterCreationScreen.Print(x + offsetX, y + 24,"[kK] Lynx");
+          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 24,"[lL] Moon");
+
+          _CharacterCreationScreen.Print(x + offsetX, y + 30,"[a-l] Pick Month");
+          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 24,"[A-L] Describe Month");
+
 
           // _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 2,"Sex");
           // _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 2,"Race");
@@ -43,12 +48,37 @@ namespace SadConsoleGame
         public override bool ProcessKeyboard(Keyboard keyboard)
         {
           bool handled = false;
-          if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.Z))
-          {
-            SadConsole.GameHost.Instance.Screen = new RootScreen();
-            GameHost.Instance.Screen.IsFocused = true;
-            handled = true;
+
+          // ********************** Month *********************
+          if(characterCreationLocation == 1){
+            if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.Z))
+              {
+                SadConsole.GameHost.Instance.Screen = new RootScreen();
+                GameHost.Instance.Screen.IsFocused = true;
+                handled = true;
+              }
           }
+          // ********************** Sex *********************
+          if(characterCreationLocation == 2)
+          {
+
+          }
+          // ********************** Race *********************
+          if(characterCreationLocation == 3)
+          {
+
+          }
+          // ********************** Class *********************
+          if(characterCreationLocation == 4)
+          {
+            
+          }
+          // ********************** Stats *********************
+          if(characterCreationLocation == 5)
+          {
+            
+          }
+
           return handled;
         }
     }
