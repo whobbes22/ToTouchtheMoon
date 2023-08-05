@@ -143,7 +143,7 @@ namespace SadConsoleGame
                 handled = true;
               }
           }
-          // ********************** Sex *********************
+          // ********************** Sex ********************* 
           if(characterCreationLocation == 2)
           {
 
