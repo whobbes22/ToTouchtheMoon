@@ -53,7 +53,8 @@ namespace SadConsoleGame
           bool handled = false;
           if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.N))
           {
-            SadConsole.GameHost.Instance.Screen = new RootScreen();
+            // SadConsole.GameHost.Instance.Screen = new RootScreen();
+            SadConsole.GameHost.Instance.Screen = new CharacterCreationScreen();
             GameHost.Instance.Screen.IsFocused = true;
             handled = true;
           }
