@@ -5,11 +5,13 @@ namespace SadConsoleGame
 {
     public class CharacterCreationScreen : ScreenObject
     {
-      private int characterCreationLocation = 1
+      private int characterCreationLocation = 1;
+
+      private ScreenSurface _CharacterCreationScreen = new ScreenSurface(Game.Instance.ScreenCellsX,Game.Instance.ScreenCellsY);
         public CharacterCreationScreen()
         {
           
-          ScreenSurface _CharacterCreationScreen = new ScreenSurface(Game.Instance.ScreenCellsX,Game.Instance.ScreenCellsY);
+          
           _CharacterCreationScreen.Position = new Point(0,0);
           _CharacterCreationScreen.Surface.DefaultBackground = Color.Black;
 
@@ -34,7 +36,7 @@ namespace SadConsoleGame
           _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 24,"[lL] Moon");
 
           _CharacterCreationScreen.Print(x + offsetX, y + 30,"[a-l] Pick Month");
-          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 24,"[A-L] Describe Month");
+          _CharacterCreationScreen.Print(x + offsetX + secondOffSetX,y + 30,"[A-L] Describe Month");
 
 
           // _CharacterCreationScreen.Print(GameHost.Instance.ScreenCellsX / 3,Game.Instance.ScreenCellsY / 3+ 2,"Sex");
@@ -51,11 +53,16 @@ namespace SadConsoleGame
 
           // ********************** Month *********************
           if(characterCreationLocation == 1){
+            if(SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.LeftShift) || SadConsole.GameHost.Instance.Keyboard.IsKeyPressed(Keys.RightShift))
+            {
+              _CharacterCreationScreen.Print(1, 1,"shift pressed");
+              handled = true;
+            }
             if(SadConsole.GameHost.Instance.Keyboard.IsKeyReleased(Keys.Z))
               {
-                SadConsole.GameHost.Instance.Screen = new RootScreen();
-                GameHost.Instance.Screen.IsFocused = true;
-                handled = true;
+                // SadConsole.GameHost.Instance.Screen = new RootScreen();
+                // GameHost.Instance.Screen.IsFocused = true;
+                // handled = true;
               }
           }
           // ********************** Sex *********************
